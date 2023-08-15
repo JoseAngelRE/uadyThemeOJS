@@ -1,0 +1,647 @@
+/**
+ * @file plugins/themes/default/styles/head.less
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @ingroup pkp_structure_head
+ *
+ * @brief Classes for the page header structural elements
+ */
+@nav-menu-height: @quadruple;
+
+// Structural components of the header layout
+
+.pkp_structure_head {
+	background-color: @bg-base;
+	border-bottom: @bg-border;
+}
+
+.pkp_head_wrapper {
+	position: relative;
+	padding: 0;
+	padding-right: 0;
+}
+
+.pkp_site_name_wrapper {
+	height: 6rem;
+	width: 100%;
+	background-color: @secondary-color-uady;
+	@media (min-width: @screen-desktop) {
+		height:  120px;
+		background-color: #FFFFFF;
+		margin: 0 0;
+		width: 100%;
+	}
+}
+
+.logo_uady{
+	position: absolute;
+	left: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: @text-bg-base;
+	font-family: @font-site-title;
+	font-size: @font-sml;
+	> a {
+		margin-top: @half;
+		margin-bottom: @half;
+		padding: 0;
+
+		&:focus {
+			outline: 1px solid @text-bg-base;
+		}
+
+		img {
+			display: block;
+			max-height: 6.1rem;
+			max-width: 100%;
+			width: auto;
+			height: auto;
+		}
+	}
+}
+
+.issnText{
+	position: absolute;
+	//left: @nav-menu-height;
+	//right: @triple;
+	left: 50%;
+	margin-top: 0;
+	top: 3.4rem;
+	margin-bottom: 0;
+	padding-left: @base;
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: @text-bg-base;
+	font-family: @font-site-title;
+	font-size: 0.5rem;
+	color: #FFFFFF;
+	> h1{
+		display: inline-block;
+		margin-top: @half;
+		margin-bottom: @half;
+		padding: 0;
+	}
+	
+}
+
+// Site logo/name
+.pkp_site_name {
+	position: absolute;
+	left: 11rem;
+	margin-top: 0;
+	margin-bottom: 0;
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: @text-bg-base;
+	font-family: @font-site-title;
+	font-size: @font-sml;
+	display: flex;
+	width: -webkit-fill-available;
+	justify-content: center;
+	background-color: @primary-color-uady;
+
+	> a {
+		padding-top: @base;
+		padding-bottom: @base;
+
+		&:focus {
+			outline: 0;
+		}
+	}
+
+	.is_img {
+		display: inline-block;
+		margin-top: @half;
+		margin-bottom: @half;
+		padding: 0;
+
+		&:focus {
+			outline: 1px solid @text-bg-base;
+		}
+
+		img {
+			display: block;
+			max-height: @nav-menu-height - @base;
+			max-width: 100%;
+			width: auto;
+			height: auto;
+		}
+	}
+
+	.is_text {
+		font-family: @font-site-title;
+		font-size: @font-sml;
+		font-weight: @bold;
+		line-height: @nav-menu-height;
+		color: @text-bg-base;
+		text-decoration: none;
+
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+}
+
+.pkp_navigation_primary_wrapper {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+// Mobile navigation menu
+.pkp_site_nav_menu {
+	position: absolute;
+	width: 100%;
+	top: 100%;
+	background:@bg-base;
+	left: 0;
+	padding: @base;
+	z-index: 9999;
+
+	.pkp_nav_list {
+		padding-left: 0;
+		margin-left: 0;
+	}
+
+	ul {
+		&:extend(.pkp_unstyled_list);
+
+		ul {
+			padding-left: 0.5rem;
+		}
+	}
+
+	a {
+		display: inline-block;
+		padding: 0.125rem 0;
+		color: @secondary-color-uady;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: @primary-color-uady;
+			text-decoration: underline;
+		}
+	}
+
+	#siteNav {
+		position: absolute;
+		top: 0;
+		height: 0;
+	}
+}
+
+.pkp_navigation_user {
+
+	&.pkp_navigation_user {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid @bg-base-border-color;
+	}
+
+	.task_count {
+		display: inline-block;
+		width: @double;
+		height: @double;
+		margin-left: 0.5em;
+		border-radius: 50%;
+		background-color: @secondary-color-uady;
+		color: #FFFFFF;
+		line-height: @double;
+		text-align: center;
+		font-size: 0.857rem;
+		position: relative;
+		top: 0.3rem; // helps visually center the number
+	}
+
+	// Hide the top-level task count in mobile nav
+	> li > a .task_count {
+		display: none;
+	}
+
+	> li > ul a {
+		.task_count {
+			display: inline-block;
+			background-color: @secondary-color-uady;
+			color: #FFFFFF;
+		}
+
+		&:hover .task_count,
+		&:focus .task_count {
+			color: @secondary-color-uady;
+			background-color: @primary-color-uady;
+		}
+	}
+}
+
+
+.pkp_navigation_search_wrapper {
+	margin-top: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid @bg-base-border-color;
+}
+
+// The padding to apply to top-level items in the navigation row
+// Total height - line height (divided by 2 since it will be applied to top and bottom)
+@pkp_nav_primary_row_el_padding: @base;
+
+@media (min-width: @screen-desktop) {
+	.pkp_head_wrapper {
+		padding-top: @triple; // Make room for the user nav at the top
+	}
+
+	.pkp_structure_head {
+		height: 14rem;
+	}
+
+	.pkp_site_nav_toggle {
+		display: none;
+	}
+
+	.pkp_navigation_primary_wrapper {
+		padding-left: 16rem;
+		background-color: @secondary-color-uady;
+		height: 3rem;
+		width: 100%;
+	}
+
+	.logo_uady {
+		position: relative;
+		height: @quadruple*2;
+		width: fit-content;
+		left: 1rem;
+		right: auto;
+		padding: 0;
+		white-space: normal;
+		font-size: 2em; // Prevents extra vertical space after logos
+		background: transparent;
+		overflow: visible;
+
+		> a > img {
+			max-height: 120px;
+		}
+	}
+
+	.issnText {
+		position: relative;
+		height: @quadruple*2;
+		width: max-content;
+		top: auto;
+		left: -0.5rem;
+		bottom: 8.5rem;
+		float: right;
+		padding: 0;
+		white-space: normal;
+		font-size: 0.7em; // Prevents extra vertical space after logos
+		background: transparent;
+		overflow: visible;
+		color: @secondary-color-uady;
+
+		> img {
+			max-height: 80px; // must match height - padding of .is_img
+		}
+	}
+
+	.pkp_site_name {
+		position: relative;
+		width: max-content;
+		height: @quadruple*2;
+		bottom: 3.5rem;
+		left: 35%;
+		right: auto;
+		padding: 0;
+		white-space: normal;
+		font-size: 2em; // Prevents extra vertical space after logos
+		background: transparent;
+		overflow: visible;
+
+		.is_text {
+			font-family: @font-site-title;
+			font-size: @font-header;
+			line-height: @line-header;
+		}
+
+		.is_img img {
+			max-height: 80px; // must match height - padding of .is_img
+		}
+	}
+
+	.pkp_site_nav_menu {
+		display: block;
+		position: static;
+		top: auto;
+		padding: 0;
+
+		ul ul {
+			padding-left: 0;
+		}
+	}
+
+	// Site logo/nav on same line on larger screens
+	.has_site_logo .pkp_head_wrapper {
+		padding-top: @triple;
+		width: 100%;
+	}
+
+	.pkp_nav_list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			position: relative;
+			display: inline-block;
+		}
+
+		a {
+			display: inline-block;
+			padding-left: @base;
+			padding-right: @base;
+			text-decoration: none;
+			padding-top: @half;
+			padding-bottom: @half;
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
+		}
+
+		ul {
+			position: absolute;
+			top: 100%;
+			left: -9999px;
+			z-index: 1000;
+			width: 15em;
+			margin: 0;
+			padding: 0;
+			background-color: @dropdown-color-uady;
+			border-radius: @radius;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+			li {
+				display: block;
+			}
+
+			a {
+				display: block;
+				padding-left: @half;
+				border-left: @half solid transparent;
+				color: @secondary-color-uady;
+
+				&:hover,
+				&:focus {
+					outline: 0;
+					background-color: @dropdown-select-color-uady;
+					border-color: @dropdown-select-color-uady;
+				}
+			}
+
+			li:first-child a {
+				border-top-left-radius: @radius;
+				border-top-right-radius: @radius;
+			}
+
+			li:last-child a {
+				border-bottom-left-radius: @radius;
+				border-bottom-right-radius: @radius;
+			}
+		}
+
+		> li:hover ul {
+			left: 0;
+		}
+
+		[aria-haspopup]:after {
+			position: relative;
+			display: inline-block;
+			content: "";
+			width: 0;
+			height: 0;
+			margin-left: 0.25em;
+			border-top: 4px solid;
+			border-right: 4px solid transparent;
+			border-left: 4px solid transparent;
+			vertical-align: middle;
+			overflow: hidden;
+		}
+	}
+
+	// Primary site navigation menu
+	.pkp_navigation_primary {
+		text-align: center;
+
+		> li {
+			> a {
+				margin: @half 0.5em 0;
+				padding: @half 0.5em
+					calc(~"@{pkp_nav_primary_row_el_padding} - 2px"); // -2 to account for border size
+				border-bottom: 2px solid transparent;
+				color: #FFFFFF;
+				text-decoration: none;
+
+				&:hover {
+					color: @secondary-color-uady;
+					background-color: #FFFFFF;
+					outline: 0;
+					border-color: @dropdown-select-color-alt-uady;
+				}
+
+				&:focus {
+					background-color: #FFFFFF;
+					color: @secondary-color-uady;
+					outline: 0;
+				}
+			}
+
+			&:first-child {
+				a {
+					margin-left: -0.5em;
+				}
+			}
+
+			&:last-child {
+				a {
+					margin-right: -0.5em;
+				}
+			}
+		}
+
+		> li:hover ul {
+			left: 1rem;
+		}
+
+		ul a {
+			padding-top: @base;
+			padding-bottom: @base;
+		}
+
+		[aria-haspopup]:hover {
+			border-color: transparent;
+		}
+
+		.dropdown-menu a:focus,
+		.dropdown-menu a:hover {
+			border-color: @dropdown-select-color-alt-uady;
+			color: @secondary-color-uady;
+		}
+
+		@media (min-width: @screen-desktop) {
+			display: inline-block;
+			max-width: 80%;
+			text-align: left;
+		}
+	}
+
+	// Bootstrap dropdown components
+	.dropdown-menu {
+		display: none;
+
+		&.show {
+			display: block;
+		}
+	}
+
+	[data-toggle="dropdown"]:hover + .dropdown-menu,
+	.dropdown-menu:hover {
+		display: block;
+	}
+
+	// User-focused navigation menu
+	.pkp_navigation_user_wrapper {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		text-align: right;
+		padding-top: 0;
+		margin-top: 0;
+		border-top: none;
+		z-index: 1000;
+	}
+
+	.pkp_navigation_user {
+		text-align: right;
+		font-size: @font-sml;
+		background-color: @primary-color-uady;
+		width: 100%;
+
+		&.pkp_navigation_user {
+			margin: 0;
+			padding: 0;
+			border: none;
+		}
+
+		li {
+			text-align: left;
+		}
+
+		a {
+			padding-top: @half;
+			padding-bottom: @half;
+			line-height: @line-sml;
+			color: @secondary-color-uady;
+		}
+
+		> li > a:focus {
+			outline: 0;
+			background-color: #FFFFFF;
+			color: @primary-color-uady;
+		}
+
+		> li > a:hover {
+			outline: 0;
+			background-color: #FFFFFF;
+			color: @primary-color-uady;
+		}
+		
+		ul {
+			width: 10em;
+			background-color: @secondary-color-uady;
+		}
+		
+		> li:hover ul {
+			right: 0;
+			left: auto;
+		}
+		
+		// Align to the right edge of the container
+		//> li:last-child > a {
+			//margin-right: -@base;100%
+		//}
+		
+		// Show the top-level task count in desktop nav
+		> li > a .task_count {
+			display: inline-block;
+		}
+		
+		> li > a:focus .task_count, a:hover .task_count {
+			background-color: @primary-color-uady;
+			color: @secondary-color-uady;
+		}
+
+		> li > ul a {
+
+			color: #FFFFFF;
+
+			.task_count {
+				display: none;
+			}
+		}
+	}
+	.pkp_navigation_user li > ul >li>a:hover{
+		background-color: @dropdown-select-color-alt-uady;
+		color: #ffffff;
+	}
+	.pkp_navigation_search_wrapper {
+		float: right;
+		margin: 0;
+		position: relative;
+		bottom: 3rem;
+		padding: 0;
+		border: none;
+
+		a {
+			margin: @half 0.5em 0;
+			padding: @half 0.5em
+				calc(~"@{pkp_nav_primary_row_el_padding} - 2px"); // -2 to account for border size
+			border-bottom: 2px solid transparent;
+			color: #FFFFFF;
+			text-decoration: none;
+
+			&:hover {
+				color: @secondary-color-uady;
+				background-color: #FFFFFF;
+				outline: 0;
+				border-color: @text-bg-base;
+				text-decoration: none;
+			}
+
+			&:focus {
+				background-color: #FFFFFF;
+				color: @secondary-color-uady;
+				outline: 0;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+@media (min-width: 1760px){
+	.pkp_site_name {
+		left: 42%;
+	}
+}

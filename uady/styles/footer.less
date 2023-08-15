@@ -1,0 +1,257 @@
+/**
+ * @file plugins/themes/default/styles/footer.less
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Classes for the page footer elements
+ */
+
+.pkp_structure_footer_wrapper {
+	background: @secondary-color-uady;
+	color: #FFFFFF;
+}
+
+.uady_footer{
+	color: white; 
+	padding: 30px;
+}
+
+.uady_footer_part{
+	flex-flow: row wrap; 
+	box-sizing: border-box; 
+	display: flex;
+}
+
+.uady_siguenos_phone{
+	padding: 20px; 
+	flex: 1 1 100%; 
+	box-sizing: border-box; 
+	max-width: 100%; 
+
+	> h3{
+		text-align: center; 
+		margin-bottom: 0px;
+	}
+
+	> div{
+		flex-direction: row;
+		box-sizing: border-box; 
+		display: flex; 
+		place-content: flex-start center; 
+		align-items: flex-start;
+	}
+
+	a{
+		margin-right: 5px;
+	}
+
+	a{
+		color: white; 
+		text-decoration: none;
+	}
+}
+
+i{
+	font-size: 25px;
+}
+
+.mat-icon-button{
+    box-sizing: border-box;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    overflow: visible;
+}
+
+.mat-icon-button {
+    padding: 0;
+    min-width: 0;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    line-height: 40px;
+    border-radius: 50%;
+	color: inherit;
+    background: transparent;
+}
+
+.uady_contenido_one{
+	margin-bottom: 30px; 
+	flex: 1 1 100%; 
+	box-sizing: border-box; 
+	max-width: 100%;
+
+	p{
+		margin: 0px 0px 0px 40px;
+	}
+
+	a{
+		color: white; 
+		text-decoration: none;
+	}
+}
+
+.uady_contenido_two{
+	padding: 20px; 
+		font-size: 12px; 
+		flex: 1 1 100%; 
+		box-sizing: border-box; 
+		max-width: 100%;
+
+	p{
+		text-align: center;
+	}
+}
+
+.uady_siguenos_desktop{
+	padding: 20px; 
+	flex: 1 1 30%; 
+	box-sizing: border-box; 
+	max-width: 30%;
+	display: none;
+
+	> h3{
+		text-align: center; 
+		margin-bottom: 0px;
+	}
+
+	> div{
+		flex-direction: row; 
+		box-sizing: border-box; 
+		display: flex; 
+		place-content: flex-start center; 
+		align-items: flex-start;
+	}
+
+	a{
+		color: white; 
+		text-decoration: none;
+	}
+}
+
+.uady_structure_terminosYcondiciones{
+	background-color: #FFFFFF;
+	color: #000000;
+	padding: 20px;
+}
+
+.uady_content_terminos{
+	flex-flow: row wrap; 
+	box-sizing: border-box; 
+	display: flex;
+}
+
+.uady_contraloriasocial{
+	flex: 1 1 100%; 
+	box-sizing: border-box; 
+	max-width: 100%;
+
+	> p {
+		margin-bottom: 0px; 
+		margin-left: 40px;
+
+		> a {
+			color: white;
+
+			> img {
+				width: 40%;
+			}
+		}
+	}
+}
+
+.uady_infoTerminosYCondiciones{
+	font-size: 12px; 
+	text-align: center; 
+	place-content: flex-end center; 
+	align-items: flex-end; 
+	flex-direction: row; 
+	display: flex; 
+	box-sizing: border-box;
+	flex: 1 1 100%; 
+	box-sizing: border-box; 
+	max-width: 100%;
+
+	> p {
+		text-align: center; 
+		line-height: normal;
+	}
+}
+
+.uady_content_extra{
+	flex: 1 1 30%; 
+	box-sizing: border-box; 
+	max-width: 30%;
+	display: none;
+}
+
+@media (min-width: @screen-tablet) {
+	.uady_siguenos_phone{
+		flex: 1 1 50%;  
+		max-width: 50%; 
+	}
+
+	.uady_contenido_one{ 
+		flex: 1 1 50%; 
+		max-width: 50%;
+	}
+	
+	.uady_contraloriasocial{
+		flex: 1 1 50%; 
+		max-width: 50%;
+	}
+}
+
+@media (min-width: @screen-desktop) {
+	
+	.uady_siguenos_phone{
+		display: none;
+	}
+	
+	.uady_contenido_one{ 
+		flex: 1 1 30%; 
+		max-width: 30%;
+	}
+	
+	.uady_contenido_two{
+		flex: 1 1 40%;  
+		max-width: 40%;
+	}
+	
+	.uady_siguenos_desktop{
+		display: block;
+	}
+	
+	.uady_contraloriasocial{
+		flex: 1 1 30%;  
+		max-width: 30%;
+	}
+	
+	.uady_infoTerminosYCondiciones{
+		flex: 1 1 40%; 
+		max-width: 40%;
+	}
+	
+	.uady_content_extra{
+		flex: 1 1 30%; 
+		box-sizing: border-box; 
+		max-width: 30%;
+	}
+}
+
